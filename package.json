@@ -1,0 +1,21 @@
+{
+  "name": "m-svg-sprite-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/loader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib",
+    "prepack": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "domready": "^1.0.8",
+    "svg-baker": "^1.2.13"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  }
+}
