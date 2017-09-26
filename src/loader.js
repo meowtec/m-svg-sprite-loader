@@ -14,6 +14,8 @@ module.exports = function (content) {
    */
   if (content.includes('<svg')) {
     content = content.toString()
+  } else {
+    console.log(content.toString())
   }
 
   svgCompiler.addSymbol({
@@ -27,7 +29,8 @@ module.exports = function (content) {
     done(null, `
       var runtime = require('${path.resolve(__dirname, './runtime')}')
       runtime(${JSON.stringify(symbol.render())}, ${wrappedId})
-      export default ${wrappedId}
+      exports.__esModule = true
+      exports.default = ${wrappedId}
     `)
   })
   .catch(done)
