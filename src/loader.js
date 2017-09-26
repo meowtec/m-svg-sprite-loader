@@ -1,13 +1,17 @@
 const path = require('path')
 const SVGCompiler = require('svg-baker')
 const svgCompiler = new SVGCompiler()
-
-const getFileId = filePath => 'icon-' + path.parse(filePath).name
+const loaderUtils = require('loader-utils')
 
 module.exports = function (content) {
   const resourceQuery = this.resourceQuery || ''
   const done = this.async()
-  const id = getFileId(this.resourcePath)
+  const name = path.parse(this.resourcePath).name
+  const options = loaderUtils.getOptions(this) || {}
+
+  const id = options.symbolId
+    ? options.symbolId.replace('[name]', name)
+    : name
 
   /**
    * read svg as string, other as buffer

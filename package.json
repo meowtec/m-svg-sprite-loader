@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "domready": "^1.0.8",
+    "loader-utils": "^1.1.0",
     "svg-baker": "^1.2.13"
   },
   "devDependencies": {
